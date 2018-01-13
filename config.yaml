@@ -1,0 +1,11 @@
+registry:
+  prefix:  gcr.io/reliable-cairn-192018/dev
+  enabled: true
+rbac:
+  enabled: false
+jupyterhub:
+  hub:
+    rbac:
+      enabled: false
+hub:
+  url: http://35.225.152.13
