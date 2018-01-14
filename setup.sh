@@ -4,8 +4,18 @@ id='reliable-cairn-192018'
 prefix='dev'
 FORCE='--force'
 secretFile='BinderHub-private.json'
+num_nodes='2'
+machine_type='n1-standard-2'
+zone='us-central1-b'
+cluster_name='hello-world'
 
 gcloud components install kubectl
+
+gcloud container clusters create $cluster_name \
+    --num-nodes=$num_nodes \
+    --machine-type=$machine_type \
+    --zone=$zone
+
 curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
 helm init
 
