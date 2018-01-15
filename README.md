@@ -6,13 +6,16 @@ Some helpful scripts for getting [BinderHub](http://binderhub.readthedocs.io/) d
 * pip install --user cookiecutter
 * export PATH=$PATH:~/.local/bin
 * cookiecutter https://github.com/nicain/binder-deploy.git --checkout cookiecutter
-* cd into your project slug (default is binder-deploy)
-* Copy your google password file into binder-deploy (rename to your input for secretFile, default is BinderHub-private.json)
-* ./setup.sh
-* ./deploy.sh
+
+Here you will need to direct cookiecutter to your google password file.  By default, the template will look in ~/.secret/BinderHub.json
+
+* cd binder-deploy && ./setup.py && ./deploy.sh
+
+I have been seeing an error that I don't know much about: "Error: could not find a ready tiller pod".  If you see this too, just wait a few seconds, and then re-run ./deploy.sh.  Lastly:
+
 * ./info.sh
 
-The last command will tell you the IP address of your BinderHub deployment.  When you are all done:
+The command will tell you the IP address of your BinderHub deployment.  When you are all done:
 
 * ./teardown.sh
 * Click on the links that are splashed up, and shut down any remaining resources.
