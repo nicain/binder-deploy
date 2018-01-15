@@ -19,7 +19,10 @@ helm install jupyterhub/binderhub --version=v0.1.0-397eb59 --name=binder --names
 
 # Wait for  JupyterHub, grab its IP address, and update Binderhub to link together:
 jupyterhub_ip=`kubectl --namespace=binder get svc proxy-public | awk '{ print $4}' | tail -n 1`
-while [ $jupyterhub_ip = '<pending>' ]
+echo 'STARTING'
+echo "X$jupyterhubY"
+echo 'ENDING'
+while [ "$jupyterhub_ip" = '<pending>' ] || [ "$jupyterhub_ip" = "" ] 
 do
     echo "JupyterHub IP: $jupyterhub_ip"
     sleep 5

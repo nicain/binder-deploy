@@ -22,8 +22,8 @@ if os.path.exists(args.output_file):
 template = yaml.load(open(args.template, 'r'))
 template['registry']['prefix'] = template['registry']['prefix'].replace('<google-project-id>', args.id).replace('<prefix>', args.prefix)
 
-template['hub'] = {}
 if not (args.jupyterhub_ip is None):
+    template['hub'] = {}
     template['hub']['url'] = 'http://%s' % args.jupyterhub_ip
 
 yaml.dump(template, open(args.output_file, 'w'), default_flow_style=False)
