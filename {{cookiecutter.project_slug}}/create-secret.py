@@ -28,7 +28,7 @@ template['jupyterhub']['proxy']['secretToken'] = args.secretToken
 template['hub']['services']['binder']['apiToken'] = args.apiToken
 
 
-secretFile = json.load(open(args.secretFile, 'r'))
+secretFile = json.load(open(os.path.expanduser(args.secretFile), 'r'))
 template['registry']['password'] = "|%s" % json.dumps(secretFile)
 
 

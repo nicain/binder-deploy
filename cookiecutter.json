@@ -5,5 +5,5 @@
     "zone":"us-central1-b",
     "cluster_name":"hello-world",
     "prefix":"dev",
-    "secretFile":"BinderHub-private.json"
+    "secretFile":"~/.secret/BinderHub.json"
 }
