@@ -6,6 +6,7 @@ import os
 parser = argparse.ArgumentParser()
 parser.add_argument('--id', '--google-project-id', type=str, required=True)
 parser.add_argument('--prefix', type=str, required=True)
+parser.add_argument('--jupyterhub_ip', type=str, default=None)
 parser.add_argument('--template', type=str, default='config-template.yaml')
 parser.add_argument('--force', action='store_true')
 parser.add_argument('output_file', nargs='?', default='config.yaml')
@@ -18,8 +19,11 @@ if os.path.exists(args.output_file):
     else:
         raise RuntimeError('Output file already exists: %s' % args.output_file)
 
-
-
 template = yaml.load(open(args.template, 'r'))
 template['registry']['prefix'] = template['registry']['prefix'].replace('<google-project-id>', args.id).replace('<prefix>', args.prefix)
+
+template['hub'] = {}
+if not (args.jupyterhub_ip is None):
+    template['hub']['url'] = 'http://%s' % args.jupyterhub_ip
+
 yaml.dump(template, open(args.output_file, 'w'), default_flow_style=False)
