@@ -18,4 +18,4 @@ kubectl get node
 
 # Download and install helm:
 curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
-helm init
+helm init --upgrade
