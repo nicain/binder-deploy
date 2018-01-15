@@ -5,7 +5,7 @@ Some helpful scripts for getting [BinderHub](http://binderhub.readthedocs.io/) d
 * Use Google Cloud Shell [Google documentation](https://cloud.google.com/shell/docs/starting-cloud-shell) which will give you access to the gcloud command-line tool.
 * pip install --user cookiecutter
 * export PATH=$PATH:~/.local/bin
-* cookiecutter https://github.com/nicain/binder-deploy.git --checkout cookiecutter
+* cookiecutter https://github.com/nicain/binder-deploy.git
 
 Here you will need to direct cookiecutter to your google password file.  By default, the template will look in ~/.secret/BinderHub.json
 
