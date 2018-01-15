@@ -1,3 +1,5 @@
+set -e
+
 # Settings:
 id=${DEVSHELL_PROJECT_ID:-Cloud Shell}
 prefix={{cookiecutter.prefix}}
