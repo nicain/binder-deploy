@@ -2,7 +2,6 @@
 id=${DEVSHELL_PROJECT_ID:-Cloud Shell}
 prefix={{cookiecutter.prefix}}
 secretFile={{cookiecutter.secretFile}}
-FORCE=''
 
 # Initializations:
 apiToken=`openssl rand -hex 32`
@@ -13,8 +12,8 @@ helm repo add jupyterhub https://jupyterhub.github.io/helm-chart
 helm repo update
 
 # Install the Helm Chart using the configuration files, to deploy both a BinderHub and a JupyterHub:
-python create-config.py --id=$id --prefix=$prefix
-python create-secret.py --apiToken=$apiToken --secretToken=$secretToken --secretFile=$secretFile $FORCE
+python create-config.py --id=$id --prefix=$prefix --force
+python create-secret.py --apiToken=$apiToken --secretToken=$secretToken --secretFile=$secretFile --force
 helm install jupyterhub/binderhub --version=v0.1.0-397eb59 --name=binder --namespace=binder -f secret.yaml -f config.yaml
 
 # Wait for  JupyterHub, grab its IP address, and update Binderhub to link together:
