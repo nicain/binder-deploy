@@ -2,7 +2,7 @@
 id=${DEVSHELL_PROJECT_ID:-Cloud Shell}
 prefix='dev'
 secretFile='BinderHub-private.json'
-FORCE='--force'
+FORCE=''
 
 # Initializations:
 apiToken=`openssl rand -hex 32`

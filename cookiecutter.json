@@ -1,0 +1,9 @@
+{
+    "project_slug": "binder-deploy",
+    "num_nodes":"1",
+    "machine_type":"n1-standard-2",
+    "zone":"us-central1-b",
+    "cluster_name":"hello-world",
+    "prefix":"dev",
+    "secretFile":"BinderHub-private.json"
+}
