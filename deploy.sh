@@ -1,5 +1,5 @@
 # Settings:
-id='reliable-cairn-192018'
+id=${DEVSHELL_PROJECT_ID:-Cloud Shell}
 prefix='dev'
 secretFile='BinderHub-private.json'
 FORCE='--force'
