@@ -9,7 +9,7 @@ Some helpful scripts for getting [BinderHub](http://binderhub.readthedocs.io/) d
 
 Here you will need to direct cookiecutter to your google password file.  By default, the template will look in ~/.secret/BinderHub.json
 
-* cd binder-deploy && ./setup.py && ./deploy.sh
+* cd binder-deploy && ./setup.sh && ./deploy.sh
 
 I have been seeing an error that I don't know much about: "Error: could not find a ready tiller pod".  If you see this too, just wait a few seconds, and then re-run ./deploy.sh.  Lastly:
 
