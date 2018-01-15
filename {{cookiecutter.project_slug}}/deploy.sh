@@ -1,7 +1,7 @@
 # Settings:
 id=${DEVSHELL_PROJECT_ID:-Cloud Shell}
-prefix='dev'
-secretFile='BinderHub-private.json'
+prefix={{cookiecutter.prefix}}
+secretFile={{cookiecutter.secretFile}}
 FORCE=''
 
 # Initializations:

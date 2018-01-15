@@ -1,8 +1,8 @@
 # Settings:
-num_nodes='1'
-machine_type='n1-standard-2'
-zone='us-central1-b'
-cluster_name='hello-world'
+num_nodes={{cookiecutter.num_nodes}}
+machine_type={{cookiecutter.machine_type}}
+zone={{cookiecutter.zone}}
+cluster_name={{cookiecutter.cluster_name}}
 
 # Install kubectl, a tool for controlling kubernetes:
 gcloud components install kubectl

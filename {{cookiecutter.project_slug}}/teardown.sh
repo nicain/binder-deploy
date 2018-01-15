@@ -1,5 +1,5 @@
-zone='us-central1-b'
-cluster_name='hello-world'
+zone={{cookiecutter.zone}}
+cluster_name={{cookiecutter.cluster_name}}
 
 helm delete binder --purge
 kubectl delete namespace binder
