@@ -17,7 +17,13 @@ python create-config.py --id=$id --prefix=$prefix
 python create-secret.py --apiToken=$apiToken --secretToken=$secretToken --secretFile=$secretFile $FORCE
 helm install jupyterhub/binderhub --version=v0.1.0-397eb59 --name=binder --namespace=binder -f secret.yaml -f config.yaml
 
-# Now that JupyterHub, grab its IP address and update Binderhub to link together:
+# Wait for  JupyterHub, grab its IP address, and update Binderhub to link together:
 jupyterhub_ip=`kubectl --namespace=binder get svc proxy-public | awk '{ print $4}' | tail -n 1`
+while [ $jupyterhub_ip = '<pending>' ]
+do
+    echo "JupyterHub IP: $jupyterhub_ip"
+    sleep 5
+    jupyterhub_ip=`kubectl --namespace=binder get svc proxy-public | awk '{ print $4}' | tail -n 1`
+done
 python create-config.py --id=$id --prefix=$prefix --jupyterhub_ip=$jupyterhub_ip --force
 helm upgrade binder jupyterhub/binderhub --version=v0.1.0-397eb59 -f secret.yaml -f config.yaml
