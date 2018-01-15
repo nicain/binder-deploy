@@ -1,0 +1,2 @@
+echo "Jupyterhub IP: " `kubectl --namespace=binder get svc proxy-public | awk '{ print $4}' | tail -n 1`
+echo "Binderhub IP: " `kubectl --namespace=binder get svc binder | awk '{ print $4}' | tail -n 1`
